@@ -1,3 +1,6 @@
+I header - toggle btn som visar/gömmer 'create-post'
+beroende på btn state - visa user-view eller visa admin-view
+
 ## Beskrivning
 Du skall i denna uppgift bygga en blogg med valfritt tema. Bloggen ska innehålla två perspektiv: användare & ägare. Se nedanför för information om perspektiven. Projektet behöver inget API.
 

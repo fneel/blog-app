@@ -1,1 +1,5 @@
 <p>toggle-user works!</p>
+<div [hidden]="isShow">
+    <a routerLink="/create">Create Post</a>
+</div>
+<button (click) = toggleDisplay()>Toggle</button>

@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ToggleUserComponent } from './toggle-user/toggle-user.component';
+import { AdminCreatePostComponent } from './admin-create-post/admin-create-post.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ToggleUserComponent } from './toggle-user/toggle-user.component';
     HeaderComponent,
     HomeComponent,
     AboutComponent,
-    ToggleUserComponent
+    ToggleUserComponent,
+    AdminCreatePostComponent
   ],
   imports: [
     BrowserModule,

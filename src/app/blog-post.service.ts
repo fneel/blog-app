@@ -44,8 +44,7 @@ export class BlogPostServiceService {
     content: string): void {
       if (this.auth.activeUser.Id !==
         undefined) {
-          blogpost.comments.push(new Comment
-            (content, this.auth.activeUser.id));
+          blogpost.comments.push(new Comment(content, this.auth.activeUser.id));
             this.save();
         }
     }

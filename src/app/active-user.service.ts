@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ActiveUserService {
-  activeUser: User | undefined = undefined;
+  // activeUser: {User} | Admin;
 
-  constructor() {}
+  // constructor() {}
 }
