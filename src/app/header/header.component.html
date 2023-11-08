@@ -1,13 +1,21 @@
-<p>header works!</p>
-    <br>
+<header>
     <a routerLink="/">Home Page</a>
 <a routerLink="/about">About page</a>
-<!-- <div [hidden]="isShow">
+  <ng-container *ngIf="activeUserService.getUserStatusString() === 'Admin'">
     <a routerLink="/create">Create Post</a>
+  </ng-container>
+<app-toggle-user></app-toggle-user>
+</header>
+
+
+
+<!-- <div [hidden]="isShow">
 </div>
 <button (click) = toggleDisplay()>Toggle</button> -->
+<!-- <div *ngIf="t" -->
 
-<!-- <button (toggle)="toggleUser({ User }, { Admin })">Toggle View</button> -->
+<!-- <button (toggle)="toggleUser()">Toggle View</button> -->
+
 
 <!-- <a routerLink="../projects">Project Page</a> -->
 

@@ -1,5 +1,8 @@
-<p>toggle-user works!</p>
-<div [hidden]="isShow">
+<h4>You are currently in {{ activeUserService.getUserStatusString() }} view</h4>
+<button (click)="toggleUser()">Toggle User</button>
+
+<!-- <div [hidden]="isShow">
     <a routerLink="/create">Create Post</a>
-</div>
-<button (click) = toggleDisplay()>Toggle</button>
+</div> -->
+<!-- <button (click) = "toggleDisplay()"">Toggle</button> -->
+<!-- <button (toggle)="ToggleDisplay()">Toggle</button> -->

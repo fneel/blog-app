@@ -1,10 +1,22 @@
 import { Injectable } from '@angular/core';
 
+
+
+
 @Injectable({
   providedIn: 'root',
 })
 export class ActiveUserService {
-  // activeUser: {User} | Admin;
+  private userActive: boolean = false;
 
-  // constructor() {}
+  toggleUserStatus() {
+    this.userActive = !this.userActive;
+  }
+
+  getUserStatus(): boolean {
+    return this.userActive;
+  }
+  getUserStatusString(): string {
+    return this.userActive ? 'Admin' : 'Visitor';
+  }
 }
