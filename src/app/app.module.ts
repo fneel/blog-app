@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ToggleUserComponent } from './toggle-user/toggle-user.component';
 import { AdminCreatePostComponent } from './admin-create-post/admin-create-post.component';
+import { BlogPostComponent } from './blog-post/blog-post.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AdminCreatePostComponent } from './admin-create-post/admin-create-post.
     HomeComponent,
     AboutComponent,
     ToggleUserComponent,
-    AdminCreatePostComponent
+    AdminCreatePostComponent,
+    BlogPostComponent
   ],
   imports: [
     BrowserModule,

@@ -17,3 +17,12 @@ export class BlogPost {
         this.downvotes =0;
     }
 }
+
+// ska innehålla:
+// { title: string; 
+// thumbnailUrl: string; 
+// body: string; 
+// creationDate: Date; 
+// likes: number; 
+// dislikes: number; 
+// comments: string[]; }

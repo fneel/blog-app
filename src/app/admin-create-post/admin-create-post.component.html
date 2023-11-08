@@ -1,1 +1,18 @@
-<p>admin-create-post works!</p>
+<h2>Create Blog Post</h2>
+<label>Title</label>
+<input #title />
+
+<br />
+<label>Content</label>
+<textarea #body></textarea>
+
+<br />
+
+<label>Images</label>
+<input type="file" class="file-upload" onchange="console.log(event.target.files)">
+
+<br />
+    <label for="date">Date</label>
+    <input id="date" type="date" placeholder="date" />
+<br />
+<button (click)="createBlogPost()">Create Post</button>

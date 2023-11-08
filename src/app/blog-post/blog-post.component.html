@@ -1,0 +1,9 @@
+<div class="blog-post">
+  <h2>{{ post.title }}</h2>
+  <img [src]="post.thumbnailURL" alt="{{ post.title }}" />
+  <p>{{ post.body }}</p>
+  <p>Created on: {{ post.creationDate }}</p>
+  <p>Likes: {{ post.likes }}</p>
+  <p>Dislikes: {{ post.dislikes }}</p>
+  <p>Comments: {{ post.comments.length }}</p>
+</div>

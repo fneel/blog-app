@@ -1,51 +1,54 @@
 import { Injectable } from '@angular/core';
-import { BlogPost } from './blog-post';
-import { Comment } from './comment';
-import { ActiveUserService } from './active-user.service';
+import { BlogPost } from './blog-post.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class BlogPostServiceService {
-  private _blogposts: BlogPost[] = [];
+export class BlogPostService {
+  private blogPosts: BlogPost[] = [];
 
-  constructor(private auth: ActiveUserService) {
-    this._blogposts = this.load();
-   }
+  constructor() {
+    this.blogPosts = this.loadLocalData();
+  }
 
-   private load(): BlogPost[] {
-    let json = localStorage.getItem
-    ('blogposts');
-    return json !== null ? JSON.parse
-    (json) : [];
-   };
+  private loadLocalData(): BlogPost[] {
+    let posts = localStorage.getItem('posts');
+    return !posts ? [] : JSON.parse(posts);
+  }
 
-   public save(): void {
-    localStorage.setItem('blogposts',
-    JSON.stringify(this._blogposts));
-   }
+  public get posts(): BlogPost[] {
+    return this.blogPosts;
+  }
 
-   public get blogposts(): BlogPost[] {
-    return this._blogposts;
-   }
-   
-   public addBlogpost(content: string):
-   void {
-    if (this.auth.activeUser !==
-      undefined) {
-        this._blogposts.push(
-          new BlogPost(this._blogposts.length, content, this.auth.activeUser.id),
-        );
-        this.save();
-      }
-   }
+  public createBlogPost(post: BlogPost): void {
+    this.blogPosts.push(post);
+    this.savePostsToLocalStorage();
+  }
 
-   public addComment(blogpost: BlogPost,
-    content: string): void {
-      if (this.auth.activeUser.Id !==
-        undefined) {
-          blogpost.comments.push(new Comment(content, this.auth.activeUser.id));
-            this.save();
-        }
-    }
+  public savePostsToLocalStorage() {
+    localStorage.setItem('blogPosts', JSON.stringify(this.blogPosts));
+  }
 }
+
+
+
+// export class BlogPostService {
+//   private blogPosts: BlogPost[] = [];
+
+//   constructor() {
+//     const storedPosts = localStorage.getItem('blogPosts');
+//     if (storedPosts) {
+//       this.blogPosts = JSON.parse(storedPosts);
+//     }
+//   }
+  
+
+//   createBlogPost(post: BlogPost): void {
+//     this.blogPosts.push(post);
+//     this.savePostsToLocalStorage();
+//   }
+
+//   private savePostsToLocalStorage() {
+//     localStorage.setItem('blogPosts', JSON.stringify(this.blogPosts));
+//   }
+// }
