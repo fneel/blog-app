@@ -1,0 +1,11 @@
+.uploaded-images {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.thumbnail {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin: 5px;
+}

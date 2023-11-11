@@ -16,3 +16,10 @@
     <input id="date" type="date" placeholder="date" />
 <br />
 <button (click)="createBlogPost()">Create Post</button>
+<br />
+<br />
+<h4>Tidigare uppladdade bilder</h4>
+<div class="uploaded-images">
+  <!-- Loopa igenom uploadedImages och visa varje bild som en miniatyr -->
+  <img *ngFor="let image of uploadedImages" [src]="'http://localhost:4000/uploads/' + image" alt="Uploaded Image" class="thumbnail">
+</div>
