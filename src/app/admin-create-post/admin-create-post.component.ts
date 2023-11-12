@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { BlogPost } from '../blog-post.model';
 import { BlogPostService } from '../blog-post.service';
-// Importera HttpClient i din komponent (t.ex. admin-create-post.component.ts)
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -19,8 +18,11 @@ export class AdminCreatePostComponent {
     dislikes: 0,
     comments: [],
   };
+
   // Lägg till en array för att hålla listan över uppladdade bilder
   uploadedImages: string[] = [];
+
+  selectedFile: File | null = null;
 
   // Injicera HttpClient i konstruktorn
   constructor(
@@ -32,16 +34,21 @@ export class AdminCreatePostComponent {
   }
 
   createBlogPost() {
-    this.blogPostService.createBlogPost(this.newBlogPost);
-    this.newBlogPost = {
-      title: '',
-      thumbnailURL: '',
-      body: '',
-      creationDate: new Date(),
-      likes: 0,
-      dislikes: 0,
-      comments: [],
-    };
+    if (this.selectedFile) {
+      // Log the entire blog post object
+      console.log('Blog Post:', this.newBlogPost);
+      this.blogPostService
+        .createBlogPost(this.newBlogPost, this.selectedFile)
+        .subscribe(() => {
+          this.resetForm();
+        });
+    } else {
+      console.error('Please select a file before creating a post.');
+    }
+  }
+
+  onFileChange(event: any): void {
+    this.selectedFile = event.target.files[0];
   }
 
   // Lägg till en funktion för att hämta tidigare uppladdade bilder från servern
@@ -55,5 +62,18 @@ export class AdminCreatePostComponent {
           console.error('Error fetching uploaded images:', response.error);
         }
       });
+  }
+
+  resetForm() {
+    this.newBlogPost = {
+      title: '',
+      thumbnailURL: '',
+      body: '',
+      creationDate: new Date(),
+      likes: 0,
+      dislikes: 0,
+      comments: [],
+    };
+    this.selectedFile = null;
   }
 }

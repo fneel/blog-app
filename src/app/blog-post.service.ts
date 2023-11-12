@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BlogPost } from './blog-post.model';
+import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +10,7 @@ import { BlogPost } from './blog-post.model';
 export class BlogPostService {
   private blogPosts: BlogPost[] = [];
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.blogPosts = this.loadLocalData();
   }
 
@@ -20,9 +23,32 @@ export class BlogPostService {
     return this.blogPosts;
   }
 
-  public createBlogPost(post: BlogPost): void {
-    this.blogPosts.push(post);
-    this.savePostsToLocalStorage();
+  public getAllBlogPosts(): Observable<BlogPost[]> {
+    return of(this.blogPosts); // Använd 'of' från rxjs/operators
+  }
+
+  public createBlogPost(post: BlogPost, file: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    return this.http.post<any>('http://localhost:4000/uploads', formData).pipe(
+      map((response) => {
+        // Extract the file path from the server response
+        const filePath = response.filePath;
+
+        // Assign the file path to post.thumbnailURL
+        post.thumbnailURL = filePath;
+
+        // Add the post to the local array
+        this.blogPosts.push(post);
+
+        // Save posts to local storage
+        this.savePostsToLocalStorage();
+
+        // Return the response for further processing if needed
+        return response;
+      })
+    );
   }
 
   public savePostsToLocalStorage() {
