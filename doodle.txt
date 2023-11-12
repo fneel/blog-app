@@ -52,3 +52,15 @@ export class AdminCreatePostComponent {
     };
   }
 }
+  // Lägg till en funktion för att hämta tidigare uppladdade bilder från servern
+  getUploadedImages() {
+    this.http
+      .get<any>('http://localhost:4000/uploads')
+      .subscribe((response) => {
+        if (response.success) {
+          this.uploadedImages = response.files;
+        } else {
+          console.error('Error fetching uploaded images:', response.error);
+        }
+      });
+  }

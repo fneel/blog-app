@@ -18,12 +18,12 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
     AboutComponent,
     ToggleUserComponent,
     AdminCreatePostComponent,
-    BlogPostComponent
+    BlogPostComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
