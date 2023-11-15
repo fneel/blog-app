@@ -28,7 +28,9 @@ export class AdminCreatePostComponent {
   constructor(
     private blogPostService: BlogPostService,
     private http: HttpClient
-  ) {
+  )  
+  
+  {
     // Hämta tidigare uppladdade bilder vid komponentinitialisering
     this.getUploadedImages();
   }
