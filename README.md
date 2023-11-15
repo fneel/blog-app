@@ -1,49 +1,7 @@
-Innehåll i console.log (Blog Post) i admin-create-post ts
-
-Blog Post: 
-{title: '', thumbnailURL: '', body: '', creationDate: Mon Nov 13 2023 00:06:52 GMT+0100 (centraleuropeisk normaltid), likes: 0, …}
-body
-: 
-""
-comments
-: 
-Array(0)
-length
-: 
-0
-[[Prototype]]
-: 
-Array(0)
-creationDate
-: 
-Mon Nov 13 2023 00:06:52 GMT+0100 (centraleuropeisk normaltid) {}
-dislikes
-: 
-0
-likes
-: 
-0
-thumbnailURL
-: 
-"C:\\Users\\eleur\\blog-project\\server\\uploads\\upload-item-1699830453965-754575907.jpg"
-title
-: 
-""
-[[Prototype]]
-: 
-Object
-
-  filstruktur:
-blog-project
-|-- blog-app
-|-- server
-|   |-- public
-|   |   |-- index.html
-|   |-- uploads
-|   |-- node_modules
-|   |-- package.json
-|   |-- package-lock.json
-|   |-- server.js
+att göra: posterna visas inte i 'home'. se errormeddelande: 
+ERROR TypeError: Cannot read properties of undefined (reading 'title')
+i bland annat:
+  h2 {{ post.title }} class - "blog-post"
 
 ## Beskrivning
 Du skall i denna uppgift bygga en blogg med valfritt tema. Bloggen ska innehålla två perspektiv: användare & ägare. Se nedanför för information om perspektiven. Projektet behöver inget API.
