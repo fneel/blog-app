@@ -1,23 +1,22 @@
 import { Injectable } from '@angular/core';
-import { BlogPost } from './blog-post.model';
+import { BlogPost } from './blog-post';
+import { Comment } from './comment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BlogPostService {
-  private blogPosts: BlogPost[] = [];
+  public blogPosts: BlogPost[] = this.loadLocalData();
 
-  constructor() {
-    this.blogPosts = this.loadLocalData();
-  }
+  constructor() {}
 
   private loadLocalData(): BlogPost[] {
-    let posts = localStorage.getItem('posts');
-    return !posts ? [] : JSON.parse(posts);
+    const getItem = localStorage.getItem('blogPosts');
+    return getItem ? JSON.parse(getItem) : [];
   }
 
-  public get posts(): BlogPost[] {
-    return this.blogPosts;
+  public savePostsToLocalStorage(): void {
+    localStorage.setItem('blogPosts', JSON.stringify(this.blogPosts));
   }
 
   public createBlogPost(post: BlogPost): void {
@@ -25,30 +24,9 @@ export class BlogPostService {
     this.savePostsToLocalStorage();
   }
 
-  public savePostsToLocalStorage() {
-    localStorage.setItem('blogPosts', JSON.stringify(this.blogPosts));
+  public getPosts(): BlogPost[] {
+    return this.blogPosts;
   }
+
+  // Add other methods as needed
 }
-
-
-
-// export class BlogPostService {
-//   private blogPosts: BlogPost[] = [];
-
-//   constructor() {
-//     const storedPosts = localStorage.getItem('blogPosts');
-//     if (storedPosts) {
-//       this.blogPosts = JSON.parse(storedPosts);
-//     }
-//   }
-  
-
-//   createBlogPost(post: BlogPost): void {
-//     this.blogPosts.push(post);
-//     this.savePostsToLocalStorage();
-//   }
-
-//   private savePostsToLocalStorage() {
-//     localStorage.setItem('blogPosts', JSON.stringify(this.blogPosts));
-//   }
-// }

@@ -1,18 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BlogPostService } from '../blog-post.service';
-import { BlogPost } from '../blog-post.model';
+import { BlogPost } from '../blog-post';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
-  constructor(
-    private blogPostService: BlogPostService,
-  ) {}
+export class HomeComponent implements OnInit {
+  blogPosts: BlogPost[] = [];
+  constructor(private blogPostService: BlogPostService) {}
 
-  get posts(): BlogPost[] {
-    return this.blogPostService.posts;
+  ngOnInit(): void {
+    this.getBlogPosts();
+  }
+
+  getBlogPosts(): void {
+    this.blogPosts = this.blogPostService.getPosts();
   }
 }

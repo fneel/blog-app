@@ -9,7 +9,7 @@
 <br />
 
 <label>Images</label>
-<input type="file" class="file-upload" onchange="console.log(event.target.files)">
+<input type="file" class="file-upload">
 
 <br />
     <label for="date">Date</label>
@@ -19,7 +19,7 @@
 <br />
 <br />
 <h4>Tidigare uppladdade bilder</h4>
-<div class="uploaded-images">
+<!-- <div class="uploaded-images"> -->
   <!-- Loopa igenom uploadedImages och visa varje bild som en miniatyr -->
-  <img *ngFor="let image of uploadedImages" [src]="'http://localhost:4000/uploads/' + image" alt="Uploaded Image" class="thumbnail">
-</div>
+  <!-- <img *ngFor="let image of uploadedImages" [src]="'http://localhost:4000/uploads/' + image" alt="Uploaded Image" class="thumbnail">
+</div> -->

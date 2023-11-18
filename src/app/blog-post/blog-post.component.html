@@ -1,9 +1,13 @@
-<div class="blog-post">
+<!-- blog-app\src\app\blog-post\blog-post.component.html -->
+<div *ngIf="post">
   <h2>{{ post.title }}</h2>
-  <img [src]="post.thumbnailURL" alt="{{ post.title }}" />
+  <img [src]="post.thumbnailUrl || 'default-image-url'" alt="{{ post.title }}" />
   <p>{{ post.body }}</p>
-  <p>Created on: {{ post.creationDate }}</p>
+  <p>Created on: {{ formatDate(post.creationDate) }}</p>
   <p>Likes: {{ post.likes }}</p>
+  <button (click)="increaseLikes()">Like</button>
   <p>Dislikes: {{ post.dislikes }}</p>
+  <button (click)="increaseDislikes()">Dislike</button>
   <p>Comments: {{ post.comments.length }}</p>
 </div>
+
