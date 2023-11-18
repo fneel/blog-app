@@ -1,25 +1,46 @@
 <h2>Create Blog Post</h2>
-<label>Title</label>
-<input #title />
 
-<br />
-<label>Content</label>
-<textarea #body></textarea>
+<form class="newBlogPost">
+  <input
+    name="title"
+    type="text"
+    placeholder="Rubrik"
+    [(ngModel)]="blogPost.title"
+  />
 
-<br />
+  <br />
 
-<label>Images</label>
-<input type="file" class="file-upload">
+  <textarea
+    name="body"
+    placeholder="Berätta om något"
+    [(ngModel)]="blogPost.body"
+  >
+  </textarea>
+  <br />
 
-<br />
-    <label for="date">Date</label>
-    <input id="date" type="date" placeholder="date" />
-<br />
-<button (click)="createBlogPost()">Create Post</button>
-<br />
-<br />
-<h4>Tidigare uppladdade bilder</h4>
-<!-- <div class="uploaded-images"> -->
+
+  <input type="file" class="file-upload" />
+
+  <br />
+  <label for="date">Datum</label>
+  <input id="date" type="date" placeholder="date" />
+  <br />
+  <button (click)="createBlogPost()">Create Post</button>
+  <br />
+  <br />
+  <h2>Created posts</h2>
+
+  <ul class="blog-app">
+    <li *ngFor="let blogPost of createdPosts">
+      <app-blog-post></app-blog-post>
+    </li>
+  </ul>
+  <!-- <li *ngFor="let post of createdPosts">
+    {{ post.title }} - {{ post.creationDate | date }}
+  </li> -->
+
+  <!-- <div class="uploaded-images"> -->
   <!-- Loopa igenom uploadedImages och visa varje bild som en miniatyr -->
   <!-- <img *ngFor="let image of uploadedImages" [src]="'http://localhost:4000/uploads/' + image" alt="Uploaded Image" class="thumbnail">
 </div> -->
+</form>

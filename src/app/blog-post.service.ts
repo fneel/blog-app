@@ -6,7 +6,9 @@ import { Comment } from './comment';
   providedIn: 'root',
 })
 export class BlogPostService {
-  public blogPosts: BlogPost[] = this.loadLocalData();
+  public blogPosts: BlogPost[] = [
+    new BlogPost('', '', '', new Date(), 0, 0, [])
+  ];
 
   constructor() {}
 

@@ -1,7 +1,8 @@
 <!-- blog-app\src\app\blog-post\blog-post.component.html -->
 <div *ngIf="post">
   <h2>{{ post.title }}</h2>
-  <img [src]="post.thumbnailUrl || 'default-image-url'" alt="{{ post.title }}" />
+  <!-- <img [src]="post.thumbnailUrl || {imagePath}" alt="{{ post.title }}" /> -->
+  <p>{{ post.thumbnailUrl }}</p>
   <p>{{ post.body }}</p>
   <p>Created on: {{ formatDate(post.creationDate) }}</p>
   <p>Likes: {{ post.likes }}</p>

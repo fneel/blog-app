@@ -12,6 +12,11 @@ export class BlogPostComponent {
 
   constructor(private blogPostService: BlogPostService) {}
 
+  // Exempel på sökväg i en komponent
+  imagePath: string = 'assets/images/minbild.jpg';
+
+  // thumbnailUrl: string = this.post.thumbnailUrl;
+
   // Funktion för att formatera datumet som en sträng
   formatDate(date: Date): string {
     return new Date(date).toLocaleDateString(); // Du kan anpassa formatet om det behövs

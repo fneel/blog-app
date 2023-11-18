@@ -8,16 +8,37 @@ import { BlogPostService } from '../blog-post.service';
   styleUrls: ['./admin-create-post.component.css'],
 })
 export class AdminCreatePostComponent {
-  newBlogPost: BlogPost = new BlogPost('', '', '', new Date(), 0, 0, []);
+  title: string = '';
+  blogPost = new BlogPost('', '', '', new Date(), 0, 0, []);
+  createdPosts: BlogPost[] = [];
+  
 
   constructor(private blogPostService: BlogPostService) {}
 
   createBlogPost() {
-    this.blogPostService.createBlogPost(this.newBlogPost);
+    const blogposts: BlogPost[] = this.blogPostService.blogPosts;
+    blogposts.push(this.blogPost);
+    this.blogPostService.createBlogPost = this.createBlogPost;
+
+    this.blogPost = {
+      title: '',
+      thumbnailUrl: '',
+      body: '',
+      creationDate: new Date(),
+      likes: 0,
+      dislikes: 0,
+      comments: [],
+    };
+
+    // this.blogPostService.createBlogPost(this.newBlogPost);
+    // Lägg till det skapade inlägget i listan
+    // this.createdPosts.push(this.newBlogPost);
     this.resetForm();
   }
 
   resetForm() {
-    this.newBlogPost = new BlogPost('', '', '', new Date(), 0, 0, []);
+    this.blogPost = new BlogPost('', '', '', new Date(), 0, 0, []);
   }
+
+
 }
