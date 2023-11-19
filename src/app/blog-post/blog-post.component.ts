@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { BlogPostService } from '../blog-post.service';
 import { BlogPost } from '../blog-post';
+import { ActiveUserService } from '../active-user.service';
 
 @Component({
   selector: 'app-blog-post',
@@ -8,14 +9,13 @@ import { BlogPost } from '../blog-post';
   styleUrls: ['./blog-post.component.css'],
 })
 export class BlogPostComponent {
+
   @Input() post!: BlogPost;
 
   constructor(private blogPostService: BlogPostService) {}
-
+activeUserService = ActiveUserService;
   // Exempel på sökväg i en komponent
   imagePath: string = 'assets/images/minbild.jpg';
-
-  // thumbnailUrl: string = this.post.thumbnailUrl;
 
   // Funktion för att formatera datumet som en sträng
   formatDate(date: Date): string {

@@ -8,37 +8,35 @@ import { BlogPostService } from '../blog-post.service';
   styleUrls: ['./admin-create-post.component.css'],
 })
 export class AdminCreatePostComponent {
-  title: string = '';
-  blogPost = new BlogPost('', '', '', new Date(), 0, 0, []);
+  newBlogPost: BlogPost = new BlogPost('', '', '', new Date(), 0, 0, []);
   createdPosts: BlogPost[] = [];
-  
 
   constructor(private blogPostService: BlogPostService) {}
 
   createBlogPost() {
-    const blogposts: BlogPost[] = this.blogPostService.blogPosts;
-    blogposts.push(this.blogPost);
-    this.blogPostService.createBlogPost = this.createBlogPost;
-
-    this.blogPost = {
-      title: '',
-      thumbnailUrl: '',
-      body: '',
-      creationDate: new Date(),
-      likes: 0,
-      dislikes: 0,
-      comments: [],
-    };
-
-    // this.blogPostService.createBlogPost(this.newBlogPost);
-    // Lägg till det skapade inlägget i listan
-    // this.createdPosts.push(this.newBlogPost);
+    this.blogPostService.createBlogPost(this.newBlogPost);
+    this.createdPosts.push(this.newBlogPost);
     this.resetForm();
   }
 
-  resetForm() {
-    this.blogPost = new BlogPost('', '', '', new Date(), 0, 0, []);
+  onFileChange(event: any): void {
+    const fileInput = event.target;
+
+    if (fileInput.files && fileInput.files.length > 0) {
+      const file = fileInput.files[0];
+
+      // Logga filnamnet
+      console.log('Uppladdad fil:', file.name);
+
+      // Skapa en URL för att representera bilden
+      const imageURL = URL.createObjectURL(file);
+
+      // Spara URL:en i newBlogPost.thumbnailURL
+      this.newBlogPost.thumbnailUrl = imageURL;
+    }
   }
 
-
+  resetForm() {
+    this.newBlogPost = new BlogPost('', '', '', new Date(), 0, 0, []);
+  }
 }

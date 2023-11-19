@@ -10,7 +10,3 @@
   margin: 5px;
 } */
 
-.blogPost > li {
-  display: flex;
-  flex-direction: row;
-}
