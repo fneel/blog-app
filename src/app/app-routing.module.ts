@@ -5,6 +5,9 @@ import { HomeComponent } from './home/home.component';
 import { AdminCreatePostComponent } from './admin-create-post/admin-create-post.component';
 import { HeaderComponent } from './header/header.component';
 import { ToggleUserComponent } from './toggle-user/toggle-user.component';
+import { BlogPostService } from './blog-post.service';
+import { BlogPostComponent } from './blog-post/blog-post.component';
+import { BlogPostItemComponent } from './blog-post-item/blog-post-item.component';
 
 
 const routes: Routes = [
@@ -12,6 +15,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'create', component: AdminCreatePostComponent },
   { path: 'toggle', component: ToggleUserComponent },
+  { path: 'blog-post/:id', component: BlogPostComponent },
+  { path: 'blog-post-item', component: BlogPostItemComponent },
 ];
 
 @NgModule({

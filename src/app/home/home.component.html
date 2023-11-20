@@ -1,8 +1,31 @@
+<!-- <div class="home-container">
+  <h1>All posts</h1>
+  <div class="home-posts"> -->
+    <!-- <a [routerLink]="['/blog-post/', post.id]"> -->
+      <!-- <div class="home-posts" *ngFor="let post of blogPosts"
+routerLink="/blog-post/{{ post.id }}"
+> -->
+
+    <!-- </a> -->
+
+    
+<ul>
+  <li *ngFor="let blogPost of blogPosts">
+         <app-blog-post-item [post]="blogPost"></app-blog-post-item>
+
+  </li>
+</ul>
+  <!-- </div>
+</div> -->
 
 
-<div class="home-container">
+<!-- <div class="home-container">
 <h1>All posts</h1>
-<div class="home-posts" *ngFor="let post of blogPosts">
+<div class="home-posts" *ngFor="let post of blogPosts"
+routerLink="'/blog-post/', {{ post.id }}"
+>
+
   <app-blog-post [post]="post"></app-blog-post>
 </div>
-</div>
+</div> -->
+

@@ -8,8 +8,9 @@ import { BlogPostService } from '../blog-post.service';
   styleUrls: ['./admin-create-post.component.css'],
 })
 export class AdminCreatePostComponent {
-  newBlogPost: BlogPost = new BlogPost('', '', '', new Date(), 0, 0, []);
+  newBlogPost = new BlogPost(0, '', '', '', new Date(), 0, 0, []);
   createdPosts: BlogPost[] = [];
+  imagePath: string = 'assets/images/fig.jpg';
 
   constructor(private blogPostService: BlogPostService) {}
 
@@ -34,9 +35,13 @@ export class AdminCreatePostComponent {
       // Spara URL:en i newBlogPost.thumbnailURL
       this.newBlogPost.thumbnailUrl = imageURL;
     }
+
+    if (!fileInput) {
+      fileInput.file == this.imagePath;
+    }
   }
 
   resetForm() {
-    this.newBlogPost = new BlogPost('', '', '', new Date(), 0, 0, []);
+    this.newBlogPost = new BlogPost(0, '', '', '', new Date(), 0, 0, []);
   }
 }

@@ -1,6 +1,7 @@
-
+import { Comment } from "./comment";
 
 export class BlogPost {
+public id: number;
 public title: string;
 public thumbnailUrl: string;
 public body: string;
@@ -9,6 +10,7 @@ public likes: number;
 public dislikes: number;
 public comments: Comment[];
 constructor(
+  id: number, 
   title: string,
   thumbnailUrl: string,
   body: string,
@@ -17,6 +19,7 @@ constructor(
   dislikes: number,
   comments: Comment[]
 ) {
+  this.id = id;
   this.title = title;
   this.thumbnailUrl = thumbnailUrl;
   this.body = body;

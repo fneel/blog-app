@@ -1,20 +1,37 @@
-import { Component, Input } from '@angular/core';
+// blog-app\src\app\blog-post\blog-post.component.ts
+
+import { Component, Input, OnInit } from '@angular/core';
 import { BlogPostService } from '../blog-post.service';
 import { BlogPost } from '../blog-post';
 import { ActiveUserService } from '../active-user.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-blog-post',
   templateUrl: './blog-post.component.html',
   styleUrls: ['./blog-post.component.css'],
 })
-export class BlogPostComponent {
+export class BlogPostComponent implements OnInit {
   @Input() post!: BlogPost;
+  id: number = -1;
 
-  constructor(private blogPostService: BlogPostService) {}
-  activeUserService = ActiveUserService;
-  // Exempel på sökväg i en komponent
-  imagePath: string = 'assets/images/minbild.jpg';
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private blogPostService: BlogPostService,
+  ) {}
+
+  ngOnInit(): void {
+    // Hämta ID när komponenten initieras
+    this.activatedRoute.params.subscribe((params) => {
+      this.id = parseInt(params['id']);
+    });
+  }
+
+  get blogPost(): BlogPost | undefined {
+    return this.blogPostService.blogPosts.find(
+      (all) => all.id === this.id,
+    );
+  }
 
   // Funktion för att formatera datumet som en sträng
   formatDate(date: Date): string {

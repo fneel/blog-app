@@ -18,4 +18,6 @@ export class HomeComponent implements OnInit {
   getBlogPosts(): void {
     this.blogPosts = this.blogPostService.getPosts();
   }
+
+
 }

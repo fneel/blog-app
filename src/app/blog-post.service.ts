@@ -7,7 +7,16 @@ import { Comment } from './comment';
 })
 export class BlogPostService {
   public blogPosts: BlogPost[] = this.loadLocalData();
-  public newBlogPost: BlogPost = new BlogPost('title', 'body', 'thumbnailUrl', new Date(), 0, 0, []);
+  // public newBlogPost = new BlogPost(
+  //   -1,
+  //   'title',
+  //   'body',
+  //   'thumbnailUrl',
+  //   new Date(),
+  //   0,
+  //   0,
+  //   []
+  // );
 
   constructor() {}
 
@@ -21,8 +30,14 @@ export class BlogPostService {
   }
 
   public createBlogPost(post: BlogPost): void {
+    post.id = this.generateUniqueId();
     this.blogPosts.push(post);
     this.savePostsToLocalStorage();
+  }
+
+  private generateUniqueId(): number {
+    // Generera ett unikt ID baserat på timestamp
+    return Date.now();
   }
 
   public getPosts(): BlogPost[] {

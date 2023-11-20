@@ -10,6 +10,8 @@ import { AboutComponent } from './about/about.component';
 import { ToggleUserComponent } from './toggle-user/toggle-user.component';
 import { AdminCreatePostComponent } from './admin-create-post/admin-create-post.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
+import { BlogPostItemComponent } from './blog-post-item/blog-post-item.component';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
     ToggleUserComponent,
     AdminCreatePostComponent,
     BlogPostComponent,
+    BlogPostItemComponent,
   ],
   imports: [
     BrowserModule,
