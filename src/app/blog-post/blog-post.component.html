@@ -1,14 +1,34 @@
 <!-- blog-app\src\app\blog-post\blog-post.component.html -->
-<div *ngIf="post">
-  <h2>{{ post.title }}</h2>
-  <!-- <img [src]="post.thumbnailUrl || {imagePath}" alt="{{ post.title }}" /> -->
-  <p>{{ post.thumbnailUrl }}</p>
-  <p>{{ post.body }}</p>
-  <p>Created on: {{ formatDate(post.creationDate) }}</p>
-  <p>Likes: {{ post.likes }}</p>
-  <button (click)="increaseLikes()">Like</button>
-  <p>Dislikes: {{ post.dislikes }}</p>
-  <button (click)="increaseDislikes()">Dislike</button>
-  <p>Comments: {{ post.comments.length }}</p>
-</div>
+<div class="post-container" *ngIf="post">
+    <small class="created-date"
+    >Created on: {{ formatDate(post.creationDate) }}</small
+  >
+  <h2 class="title">{{ post.title }}</h2>
 
+  <p class="body">{{ post.body }}</p>
+  <p class="thumbnail-url">Bild-URL: {{ post.thumbnailUrl }}</p>
+
+
+
+  <div class="interaction-section">
+    <div class="like-div">
+      <p class="likes">Likes: {{ post.likes }}</p>
+      <button class="like-button" (click)="increaseLikes()">Like</button>
+    </div>
+
+    <div class="like-div">
+      <p class="dislikes">Dislikes: {{ post.dislikes }}</p>
+      <button class="dislike-button" (click)="increaseDislikes()">
+        Dislike
+      </button>
+    </div>
+  </div>
+    <p class="comments">Comments: {{ post.comments.length }}</p>
+
+    
+    <div class="delete-post">
+      <button class="delete-button" (click)="deletePost()">Delete Post</button>
+    </div>
+
+  <!-- <img [src]="post.thumbnailUrl || {imagePath}" alt="{{ post.title }}" /> -->
+</div>

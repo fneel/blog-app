@@ -1,0 +1,15 @@
+.home-container {
+    background-color: rgb(209, 209, 209);
+    
+}
+.h1 {
+    color: white;
+    text-align: center;
+}
+
+.home-posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}

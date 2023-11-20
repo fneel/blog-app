@@ -9,11 +9,10 @@ import { ActiveUserService } from '../active-user.service';
   styleUrls: ['./blog-post.component.css'],
 })
 export class BlogPostComponent {
-
   @Input() post!: BlogPost;
 
   constructor(private blogPostService: BlogPostService) {}
-activeUserService = ActiveUserService;
+  activeUserService = ActiveUserService;
   // Exempel på sökväg i en komponent
   imagePath: string = 'assets/images/minbild.jpg';
 
@@ -35,6 +34,17 @@ activeUserService = ActiveUserService;
     if (this.post !== undefined) {
       this.post.dislikes++;
       this.blogPostService.savePostsToLocalStorage();
+    }
+  }
+
+  // Funktion för att radera posten
+  deletePost(): void {
+    if (this.post !== undefined) {
+      const index = this.blogPostService.getPosts().indexOf(this.post);
+      if (index !== -1) {
+        this.blogPostService.getPosts().splice(index, 1);
+        this.blogPostService.savePostsToLocalStorage();
+      }
     }
   }
 }
