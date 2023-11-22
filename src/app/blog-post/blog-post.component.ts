@@ -11,26 +11,23 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './blog-post.component.html',
   styleUrls: ['./blog-post.component.css'],
 })
-export class BlogPostComponent implements OnInit {
-  @Input() post!: BlogPost;
+export class BlogPostComponent {
+
   id: number = -1;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private blogPostService: BlogPostService,
-  ) {}
-
-  ngOnInit(): void {
-    // Hämta ID när komponenten initieras
+    private blogPostService: BlogPostService
+  ) {
     this.activatedRoute.params.subscribe((params) => {
-      this.id = parseInt(params['id']);
+      this.id = +params['id'];
     });
   }
 
-  get blogPost(): BlogPost | undefined {
-    return this.blogPostService.blogPosts.find(
-      (all) => all.id === this.id,
-    );
+
+
+  get post(): BlogPost | undefined {
+    return this.blogPostService.blogPosts.find((all) => all.id === this.id);
   }
 
   // Funktion för att formatera datumet som en sträng

@@ -7,17 +7,15 @@ import { BlogPost } from '../blog-post';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit {
-  blogPosts: BlogPost[] = [];
+export class HomeComponent {
+
   constructor(private blogPostService: BlogPostService) {}
 
-  ngOnInit(): void {
-    this.getBlogPosts();
-  }
+get blogPosts(): BlogPost[] {
+  return this.blogPostService.blogPosts;
+}
 
-  getBlogPosts(): void {
-    this.blogPosts = this.blogPostService.getPosts();
-  }
+
 
 
 }

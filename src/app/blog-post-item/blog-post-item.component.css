@@ -1,0 +1,22 @@
+.post-article {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  height: auto;
+  width: 500px;
+  background-color: rgb(241, 241, 241);
+  border-radius: 10px;
+  padding: 10px 30px;
+  align-items: center;
+  
+
+}
+
+.created-date {
+    width: 100%;
+}
+
+.thumbnail-url{
+    width: 80%;
+    font-weight: bolder;
+    color: #000000ab;
+}

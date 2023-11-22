@@ -1,3 +1,5 @@
+// blog-app\src\app\blog-post.service.ts
+
 import { Injectable } from '@angular/core';
 import { BlogPost } from './blog-post';
 import { Comment } from './comment';
@@ -7,16 +9,7 @@ import { Comment } from './comment';
 })
 export class BlogPostService {
   public blogPosts: BlogPost[] = this.loadLocalData();
-  // public newBlogPost = new BlogPost(
-  //   -1,
-  //   'title',
-  //   'body',
-  //   'thumbnailUrl',
-  //   new Date(),
-  //   0,
-  //   0,
-  //   []
-  // );
+  // Remove newBlogPost property from the service
 
   constructor() {}
 
@@ -29,10 +22,8 @@ export class BlogPostService {
     localStorage.setItem('blogPosts', JSON.stringify(this.blogPosts));
   }
 
-  public createBlogPost(post: BlogPost): void {
-    post.id = this.generateUniqueId();
-    this.blogPosts.push(post);
-    this.savePostsToLocalStorage();
+  public getPosts(): BlogPost[] {
+    return this.blogPosts;
   }
 
   private generateUniqueId(): number {
@@ -40,9 +31,10 @@ export class BlogPostService {
     return Date.now();
   }
 
-  public getPosts(): BlogPost[] {
-    return this.blogPosts;
-  }
+  public createBlogPost(post: BlogPost): void {
+    post.id = this.generateUniqueId();
+    this.blogPosts.push(post);
 
-  // Add other methods as needed
+    localStorage.setItem('blogPosts', JSON.stringify(this.blogPosts));
+  }
 }

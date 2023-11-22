@@ -1,33 +1,38 @@
-<!-- blog-app\src\app\blog-post\blog-post.component.html -->
-<div class="post-container" *ngIf="post">
-    <small class="created-date"
-    >Created on: {{ formatDate(post.creationDate) }}</small
-  >
-  <h2 class="title">{{ post.title }}</h2>
+<p>blog-post-component works!</p>
 
-  <p class="body">{{ post.body }}</p>
-  <p class="thumbnail-url">Bild-URL: {{ post.thumbnailUrl }}</p>
+<!-- i blog-post finns även like/dislike och kommentarer -->
+<!-- blog-app\src\app\blog-post\blog-post.component.html -->
+
+<section>
+  <app-blog-post-item *ngIf="post" [post]="post" ></app-blog-post-item>
+</section>
+
+<section class="post-container">
+    <small class="created-date">Created on: {{ post?.creationDate }}</small>
+  <h2 class="title">{{ post?.title }}</h2>
+
+  <p class="body">{{ post?.body }}</p>
+  <p class="thumbnail-url">Bild-URL: {{ post?.thumbnailUrl }}</p>
 
 
 
   <div class="interaction-section">
     <div class="like-div">
-      <p class="likes">Likes: {{ post.likes }}</p>
+      <p class="likes">Likes: {{ post?.likes }}</p>
       <button class="like-button" (click)="increaseLikes()">Like</button>
     </div>
 
     <div class="like-div">
-      <p class="dislikes">Dislikes: {{ post.dislikes }}</p>
+      <p class="dislikes">Dislikes: {{ post?.dislikes }}</p>
       <button class="dislike-button" (click)="increaseDislikes()">
         Dislike
       </button>
     </div>
   </div>
-    <p class="comments">Comments: {{ post.comments.length }}</p>
+    <p class="comments">Comments: {{ post?.comments?.length }}</p>
 
     
     <div class="delete-post">
       <button class="delete-button" (click)="deletePost()">Delete Post</button>
     </div>
-
-</div>
+</section>

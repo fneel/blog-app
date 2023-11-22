@@ -1,5 +1,7 @@
+// blog-app\src\app\admin-create-post\admin-create-post.component.ts
+
 import { Component } from '@angular/core';
-import { BlogPost } from '../blog-post'; // Uppdatera importen här
+import { BlogPost } from '../blog-post';
 import { BlogPostService } from '../blog-post.service';
 
 @Component({
@@ -8,15 +10,15 @@ import { BlogPostService } from '../blog-post.service';
   styleUrls: ['./admin-create-post.component.css'],
 })
 export class AdminCreatePostComponent {
-  newBlogPost = new BlogPost(0, '', '', '', new Date(), 0, 0, []);
+  newBlogPost: BlogPost = new BlogPost(0, '', '', '', new Date(), 0, 0, []);
+
   createdPosts: BlogPost[] = [];
-  imagePath: string = 'assets/images/fig.jpg';
 
   constructor(private blogPostService: BlogPostService) {}
 
-  createBlogPost() {
+  public uploadBlogPost(): void {
     this.blogPostService.createBlogPost(this.newBlogPost);
-    this.createdPosts.push(this.newBlogPost);
+    this.createdPosts.push({ ...this.newBlogPost }); // Create a copy of the newBlogPost
     this.resetForm();
   }
 
@@ -35,13 +37,9 @@ export class AdminCreatePostComponent {
       // Spara URL:en i newBlogPost.thumbnailURL
       this.newBlogPost.thumbnailUrl = imageURL;
     }
-
-    if (!fileInput) {
-      fileInput.file == this.imagePath;
-    }
   }
 
-  resetForm() {
+  resetForm(): void {
     this.newBlogPost = new BlogPost(0, '', '', '', new Date(), 0, 0, []);
   }
 }

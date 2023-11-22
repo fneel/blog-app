@@ -1,7 +1,10 @@
+<!-- blog-app\src\app\admin-create-post\admin-create-post.component.html -->
+
 <h2>Create Blog Post</h2>
+<div class="form-div">
 <label>Title</label>
 <!-- <input #title /> -->
-    <input
+    <input class="title"
       name="title"
       type="text"
       placeholder="Title"
@@ -9,38 +12,38 @@
     />
 
 <br />
-<label>Content</label>
+<label>Body</label>
 <!-- <textarea #body></textarea> -->
-    <input
+    <input class="body-input"
       name="body"
       type="text"
-      placeholder="Berätta något"
+      placeholder="Berättanågot"
       [(ngModel)]="newBlogPost.body"
     />
 
 <br />
 
 <label>Images</label>
-<!-- <input type="file" class="file-upload"> -->
+<!-- <input type="file" class="file-upload">  -->
     <input
       name="thumbnailUrl"
       type="file"
       placeholder="Bild"
       [(ngModel)]="newBlogPost.thumbnailUrl"
-    />
+    /> 
 
 <br />
-    <label for="date">Date</label>
-    <input id="date" type="date" placeholder="date" />
+<label for="date">Date</label>
+<input id="date" type="date" placeholder="date" [(ngModel)]="newBlogPost.creationDate" />
 <br />
-<button (click)="createBlogPost()">Create Post</button>
+<button (click)="uploadBlogPost()">Create Post</button>
+</div>
 <br />
 <br />
-<h2>Created posts</h2>
 <h2>Created posts</h2>
 <ul>
   <li *ngFor="let post of createdPosts">
-    {{ post.title }} - {{post.body}} - {{post.thumbnailUrl}} - {{ post.creationDate | date }}
+    {{ post.title }} - {{post.thumbnailUrl}} - {{ post.creationDate }}
   </li>
 </ul>
 

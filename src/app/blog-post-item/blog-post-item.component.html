@@ -1,9 +1,9 @@
-<p>blog-post-details works!</p>
-<article>
+<p>blog-post-item works!</p>
+<article class="post-article">
   <div routerLink="/blog-post/{{ post.id }}">
     <small class="created-date">Created on: {{ post.creationDate }}</small>
     <h3>{{ post.title }}</h3>
-    <p>{{ post.body }}</p>
+    <!-- <p>{{ post.body }}</p> -->
       <p class="thumbnail-url">Bild-URL: {{ post.thumbnailUrl }}</p>
 
   </div>

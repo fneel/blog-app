@@ -9,5 +9,18 @@
   object-fit: cover;
   margin: 5px;
 } */
+.form-div {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+}
 
-
+.title {
+  height: 20px;
+}
+.body-input {
+  min-height: 200px;
+  
+  
+}
