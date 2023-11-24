@@ -11,6 +11,7 @@ import { ToggleUserComponent } from './toggle-user/toggle-user.component';
 import { AdminCreatePostComponent } from './admin-create-post/admin-create-post.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
 import { BlogPostItemComponent } from './blog-post-item/blog-post-item.component';
+import { CommentComponent } from './comment-item/comment-item.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { BlogPostItemComponent } from './blog-post-item/blog-post-item.component
     AdminCreatePostComponent,
     BlogPostComponent,
     BlogPostItemComponent,
+    CommentComponent,
   ],
   imports: [
     BrowserModule,

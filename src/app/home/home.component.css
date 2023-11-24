@@ -1,15 +1,11 @@
 .home-container {
+    display: flex;
     background-color: rgb(209, 209, 209);
+    justify-content: center;
     
 }
-.h1 {
-    color: white;
-    text-align: center;
-}
 
-.home-posts {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+
+.home-li {
+    list-style: none;
 }

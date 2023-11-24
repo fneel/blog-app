@@ -5,6 +5,8 @@ import { BlogPostService } from '../blog-post.service';
 import { BlogPost } from '../blog-post';
 import { ActiveUserService } from '../active-user.service';
 import { ActivatedRoute } from '@angular/router';
+import { Comment } from '../comment';
+import { CommentService } from '../comment.service';
 
 @Component({
   selector: 'app-blog-post',
@@ -12,19 +14,17 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./blog-post.component.css'],
 })
 export class BlogPostComponent {
-
   id: number = -1;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private blogPostService: BlogPostService
+    private blogPostService: BlogPostService,
+    private commentService: CommentService
   ) {
     this.activatedRoute.params.subscribe((params) => {
       this.id = +params['id'];
     });
   }
-
-
 
   get post(): BlogPost | undefined {
     return this.blogPostService.blogPosts.find((all) => all.id === this.id);
@@ -33,6 +33,25 @@ export class BlogPostComponent {
   // Funktion för att formatera datumet som en sträng
   formatDate(date: Date): string {
     return new Date(date).toLocaleDateString(); // Du kan anpassa formatet om det behövs
+  }
+
+  get comments(): Comment[] | undefined {
+    let post = this.post;
+    if (!post) return undefined;
+
+    let comments = this.commentService.comments.filter(
+      (all) => all.postId === post?.id
+    );
+
+    return comments;
+  }
+
+  sendComment(body: string): void {
+    let post = this.post;
+
+    if (!post) return;
+
+    this.commentService.addComment(body, post);
   }
 
   // Funktion för att öka antalet likes

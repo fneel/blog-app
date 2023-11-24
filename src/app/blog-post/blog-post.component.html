@@ -1,14 +1,14 @@
-<p>blog-post-component works!</p>
+
 
 <!-- i blog-post finns även like/dislike och kommentarer -->
 <!-- blog-app\src\app\blog-post\blog-post.component.html -->
 
-<section>
+<!-- <section>
   <app-blog-post-item *ngIf="post" [post]="post" ></app-blog-post-item>
-</section>
-
+</section> -->
+<div class="blog-post-div">
 <section class="post-container">
-    <small class="created-date">Created on: {{ post?.creationDate }}</small>
+    <small class="created-date">Postad: {{ post?.creationDate }}</small>
   <h2 class="title">{{ post?.title }}</h2>
 
   <p class="body">{{ post?.body }}</p>
@@ -29,10 +29,27 @@
       </button>
     </div>
   </div>
-    <p class="comments">Comments: {{ post?.comments?.length }}</p>
 
     
     <div class="delete-post">
       <button class="delete-button" (click)="deletePost()">Delete Post</button>
     </div>
 </section>
+
+<section class="write-comment">
+  <h2>Lämna en kommentar</h2>
+  <input  #newComment placeholder="Skriv en kommentar" />
+  <button (click)="sendComment(newComment.value); newComment.value = ''">
+    Skicka
+  </button>
+</section>
+
+<section class="posted-comments">
+  <h2>Kommentarer</h2>
+  <ul class="commment-ul-list" *ngIf="comments">
+    <li class="comment-li" *ngFor="let comment of comments">
+      <app-comment-item [comment]="comment"></app-comment-item>
+    </li>
+  </ul>
+</section>
+</div>

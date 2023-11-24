@@ -8,13 +8,14 @@ routerLink="/blog-post/{{ post.id }}"
 
     <!-- </a> -->
 
-    
+ <div class="home-container">  
 <ul>
-  <li *ngFor="let blogPost of blogPosts">
+  <li class="home-li" *ngFor="let blogPost of blogPosts">
          <app-blog-post-item [post]="blogPost"></app-blog-post-item>
 
   </li>
 </ul>
+</div> 
   <!-- </div>
 </div> -->
 
