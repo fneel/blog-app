@@ -1,4 +1,3 @@
-// blog-app\src\app\blog-post\blog-post.component.ts
 
 import { Component, Input, OnInit } from '@angular/core';
 import { BlogPostService } from '../blog-post.service';
@@ -31,9 +30,8 @@ export class BlogPostComponent {
     return this.blogPostService.blogPosts.find((all) => all.id === this.id);
   }
 
-  // Funktion för att formatera datumet som en sträng
   formatDate(date: Date): string {
-    return new Date(date).toLocaleDateString(); // Du kan anpassa formatet om det behövs
+    return new Date(date).toLocaleDateString();
   }
 
   get comments(): Comment[] | undefined {
@@ -55,7 +53,6 @@ export class BlogPostComponent {
     this.commentService.addComment(body, post);
   }
 
-  // Funktion för att öka antalet likes
   increaseLikes(): void {
     if (this.post !== undefined) {
       this.post.likes++;
@@ -63,7 +60,6 @@ export class BlogPostComponent {
     }
   }
 
-  // Funktion för att öka antalet dislikes
   increaseDislikes(): void {
     if (this.post !== undefined) {
       this.post.dislikes++;
@@ -71,7 +67,6 @@ export class BlogPostComponent {
     }
   }
 
-  // Funktion för att radera posten
   deletePost(): void {
     if (this.post !== undefined) {
       const index = this.blogPostService.getPosts().indexOf(this.post);

@@ -1,70 +1,62 @@
-<!-- blog-app\src\app\admin-create-post\admin-create-post.component.html -->
 <div class="create-container">
-<h2>Skapa nytt inlägg</h2>
-<div class="form-div">
-<label>Titel</label>
-<!-- <input #title /> -->
-    <input class="title"
+  <h2>Skapa nytt inlägg</h2>
+  <div class="form-div">
+    <label>Titel</label>
+    <input
+      class="title"
       name="title"
       type="text"
       placeholder="Titel..."
       [(ngModel)]="newBlogPost.title"
     />
 
-<br />
-<label>Innehåll</label>
-<!-- <textarea #body></textarea> -->
-    <textarea id="body-input"
+    <br />
+    <label>Innehåll</label>
+    <textarea
+      id="body-input"
       name="body"
       type="text"
       placeholder="Berätta något..."
-      [(ngModel)]="newBlogPost.body"></textarea>
-    
+      [(ngModel)]="newBlogPost.body"
+    ></textarea>
 
-<br />
+    <br />
 
-<label>Bilder</label>
-<!-- <input type="file" class="file-upload">  -->
+    <label>Bilder</label>
     <input
       name="thumbnailUrl"
       type="file"
       placeholder="Bild"
       [(ngModel)]="newBlogPost.thumbnailUrl"
-    /> 
+    />
 
-<br />
-<label for="date">Datum</label>
-<input id="date" type="date" placeholder="date" [(ngModel)]="newBlogPost.creationDate" />
-<br />
-<button class="create-btn" (click)="uploadBlogPost()">Publicera</button>
+    <br />
+    <label for="date">Datum</label>
+    <input
+      id="date"
+      type="date"
+      placeholder="date"
+      [(ngModel)]="newBlogPost.creationDate"
+    />
+    <br />
+    <button class="create-btn" (click)="uploadBlogPost()">Publicera</button>
+  </div>
+  <br />
+  <br />
+
+  <section class="created-post">
+    <ul>
+      <li *ngFor="let post of createdPosts">
+        <h2>Skapat inägg</h2>
+        <br />
+        {{ post.creationDate }} -
+        <br />
+        {{ post.title }} -
+        <br />
+        {{ post.body }} -
+        <br />
+        {{ post.thumbnailUrl }} -
+      </li>
+    </ul>
+  </section>
 </div>
-<br />
-<br />
-
-<section class="created-post">
-<ul>
-  
-  <li *ngFor="let post of createdPosts">
-    <h2>Skapat inägg</h2>
-    <br>
-   {{ post.creationDate }} -
-   <br>
-    {{ post.title }} - 
-    <br>
-    {{ post.body }} - 
-    <br>
-    {{post.thumbnailUrl}} - 
-  </li>
-</ul>
-</section>
-</div>
-
-  <!-- <li *ngFor="let post of createdPosts">
-    {{ post.title }} - {{ post.creationDate | date }}
-  </li> -->
-
-
-<!-- <div class="uploaded-images"> -->
-  <!-- Loopa igenom uploadedImages och visa varje bild som en miniatyr -->
-  <!-- <img *ngFor="let image of uploadedImages" [src]="'http://localhost:4000/uploads/' + image" alt="Uploaded Image" class="thumbnail">
-</div> -->

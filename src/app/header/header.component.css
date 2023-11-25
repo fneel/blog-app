@@ -9,37 +9,19 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: rgb(192, 187, 183); /* Ändra färgen efter behov */
-    z-index: 1000; /* För att säkerställa att headern visas över andra element */
+  background-color: rgb(192, 187, 183); 
+    z-index: 1000;
 }
 
 header a {
-  margin-right: 10px; /* Justera avståndet mellan länkarna om det behövs */
+  margin-right: 10px;
   text-decoration: none;
   font-size: 20px;
-  color: #333; /* Ändra färgen efter behov */
+  color: #333;
 }
 
 app-toggle-user {
-  margin-left: auto; /* 'auto' kommer att skjuta app-toggle-user längst ut till höger */
+  margin-left: auto;
   
 }
 
-/* header {
-  display: flex;
-  flex-direction: row;
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-
-}
-
-a {
-  color: #fff;
-  text-decoration: none;
-  margin: 10px;
-}
-
-app-toggle-user {
-  align-content: flex-end;
-} */

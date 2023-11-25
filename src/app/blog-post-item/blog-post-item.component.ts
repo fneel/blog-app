@@ -1,8 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { BlogPost } from '../blog-post';
-import { BlogPostService } from '../blog-post.service';
-import { ActiveUserService } from '../active-user.service';
-import { BlogPostComponent } from '../blog-post/blog-post.component';
+
 
 
 @Component({

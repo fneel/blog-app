@@ -17,9 +17,8 @@ export class ToggleUserComponent {
   toggleUser() {
     this.activeUserService.toggleUserStatus();
 
-    // Kolla om användaren är nu en 'Visitor'
     if (this.activeUserService.getUserStatusString() === 'Visitor') {
-      this.router.navigate(['/']); // Navigera till 'Home Page'
+      this.router.navigate(['/']);
     }
   }
 }

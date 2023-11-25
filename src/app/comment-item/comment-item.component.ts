@@ -1,4 +1,3 @@
-// blog-app\src\app\comment-item\comment-item.component.ts
 
 import { Component, Input } from '@angular/core';
 import { Comment } from '../comment';

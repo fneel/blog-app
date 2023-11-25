@@ -1,4 +1,4 @@
-// blog-app\src\app\blog-post.service.ts
+
 
 import { Injectable } from '@angular/core';
 import { BlogPost } from './blog-post';
@@ -9,7 +9,6 @@ import { Comment } from './comment';
 })
 export class BlogPostService {
   public blogPosts: BlogPost[] = this.loadLocalData();
-  // Remove newBlogPost property from the service
 
   constructor() {}
 
@@ -27,7 +26,6 @@ export class BlogPostService {
   }
 
   private generateUniqueId(): number {
-    // Generera ett unikt ID baserat på timestamp
     return Date.now();
   }
 

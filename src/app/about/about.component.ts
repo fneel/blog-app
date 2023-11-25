@@ -1,4 +1,3 @@
-// about.component.ts
 import { Component } from '@angular/core';
 
 @Component({
@@ -12,7 +11,6 @@ export class AboutComponent {
   message: string = '';
 
   onSubmit(): void {
-    // Sparar i local storage
     const contactData = {
       name: this.name,
       email: this.email,
@@ -26,7 +24,6 @@ export class AboutComponent {
 
     localStorage.setItem('contactData', JSON.stringify(dataToStore));
 
-    // Skriv ut i konsollen
     console.log('Kontaktformulär skickat:', contactData);
   }
 }
