@@ -1,9 +1,10 @@
 .comment-item {
+  margin-left: auto;
   margin-top: 2em;
   margin-bottom: 2em;
   height: auto;
   border-radius: 10px;
-  padding: 10px 30px;
+
   text-decoration: none;
 
   

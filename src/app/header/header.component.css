@@ -1,7 +1,37 @@
+
 header {
+    position: fixed;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: rgb(192, 187, 183); /* Ändra färgen efter behov */
+    z-index: 1000; /* För att säkerställa att headern visas över andra element */
+}
+
+header a {
+  margin-right: 10px; /* Justera avståndet mellan länkarna om det behövs */
+  text-decoration: none;
+  font-size: 20px;
+  color: #333; /* Ändra färgen efter behov */
+}
+
+app-toggle-user {
+  margin-left: auto; /* 'auto' kommer att skjuta app-toggle-user längst ut till höger */
+  
+}
+
+/* header {
+  display: flex;
+  flex-direction: row;
   background-color: #333;
   color: #fff;
   padding: 10px;
+
 }
 
 a {
@@ -9,3 +39,7 @@ a {
   text-decoration: none;
   margin: 10px;
 }
+
+app-toggle-user {
+  align-content: flex-end;
+} */

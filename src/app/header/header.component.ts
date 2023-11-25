@@ -10,20 +10,5 @@ import { ActiveUserService } from '../active-user.service';
 export class HeaderComponent {
   constructor(public activeUserService: ActiveUserService) {}
 
-  // @Output() toggleUser = new EventEmitter<boolean>();
-  // constructor(private activeUserService: ActiveUserService) {}
-  // toggle() {
-  //   this.toggleUser.emit(this.activeUserService.User);
-  // }
-  // toggleAdmin() {
-  //   this.toggleUser.emit(this.activeUserService.Admin);
-  // }
 
-  // User = ActiveUserService;
-  // toggleDisplay = new EventEmitter<boolean>();
-  // isShow = false;
-
-  // toggleDisplay() {
-  //   this.isShow = !this.isShow;
-  // }
 }

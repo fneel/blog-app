@@ -1,1 +1,90 @@
-<p>about works!</p>
+<!-- about.component.html -->
+<div class="about-container">
+    <img class="about-img" src="assets/images/fig.jpg" alt="image">
+
+<section class="about-text">
+  <p class="about-intro">
+    Hej och välkommen! Här följer några rader om en exceptionell individ som
+    inte bara behärskar kodens konst utan också lever ett liv fullt av
+    kontraster och färg. Möt Nile, en mångsidig frontend-utvecklare med en
+    passion för datorer, en kärlek till hårdrock och en oväntad rädsla för
+    fåglar.
+  </p>
+  <br />
+
+  <h3>Frontend-utvecklare i världsklass</h3>
+  <p>
+    Nile är inte bara en frontend-utvecklare – hon är en skapare av digitala
+    mästerverk. Med en djup förståelse för användarupplevelse och en övertygande
+    kodskicklighet, bidrar hon till att forma webbplatser och appar med elegans
+    och funktionalitet. 
+  </p>
+<br />
+
+  <h3>Datornörd och teknikentusiast</h3>
+  <p>
+  Datorer är inte bara ett yrke för Nile, de är hennes liv. Hon omfamnar den
+  senaste tekniken och har fingertoppskänsla för att omvandla idéer till
+  digitala verkligheter. Från att experimentera med nya ramverk till att
+  optimera prestanda – Hon är en sann teknikpionjär.
+  </p>
+  <br />
+
+  <h3>Hårdrockens hjärta</h3>
+<p>
+  När koden är tyst, låter Nile hårdrocken tala. Hon är en passionerad
+  hårdrocksentusiast och har en spellista som sträcker sig från klassiker till
+  moderna pärlor. Det är inte ovanligt att höra de kraftfulla riffen från hennes
+  hörlurar när hon skapar magi med koden.
+  </p>
+  <br />
+
+  <h3>Fågelskräck och kontraster</h3>
+ <p>
+  Men livet är inte alltid en harmonisk melodi. Nile bär på en oväntad rädsla –
+  fåglar. Trots att hennes dagar ägnas åt att skapa vackra digitala landskap,
+  finns det något med fjäderbeklädda vänner som får henne att tveka. En kontrast
+  till hennes tekniska passioner, men det är just dessa små nyanser som gör
+  henne till en fascinerande individ.
+  </p>
+
+
+   <p>
+  Sammanfattningsvis är Nile inte bara en frontend-guru och teknikmästare, utan
+  en person med en unik blandning av intressen och rädslor. Från att omfamna
+  kodens värld till att omfamna kraften i hårdrockens ackord, hon är en
+  inspirerande individ som färgar sin egen digitala värld.
+  </p>
+</section>
+
+ <section class="kontakt-text">
+  <h2>Kontakt</h2>
+  <p class="kontakt-p">
+    Vill du komma i kontakt med mig? Skicka ett meddelande via formuläret nedan
+  </p>
+ </section>
+
+  
+<div class="contact-form">
+
+
+  <form (ngSubmit)="onSubmit()">
+    <label for="name">Namn:</label>
+    <input type="text" id="name" [(ngModel)]="name" name="name" required />
+
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" [(ngModel)]="email" name="email" required />
+
+    <label for="message">Meddelande:</label>
+    <textarea
+      id="message"
+      [(ngModel)]="message"
+      name="message"
+      required
+    ></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+</div>
+
+</div>

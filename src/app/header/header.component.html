@@ -1,8 +1,8 @@
 <header>
-    <a routerLink="/">Home Page</a>
-<a routerLink="/about">About page</a>
+    <a routerLink="/">Blogg</a>
+<a routerLink="/about">Om mig</a>
   <ng-container *ngIf="activeUserService.getUserStatusString() === 'Admin'">
-    <a routerLink="/create">Create Post</a>
+    <a routerLink="/create">Skapa inlägg</a>
   </ng-container>
 <app-toggle-user></app-toggle-user>
 </header>

@@ -17,6 +17,7 @@ export class BlogPostComponent {
   id: number = -1;
 
   constructor(
+    public activeUserService: ActiveUserService,
     private activatedRoute: ActivatedRoute,
     private blogPostService: BlogPostService,
     private commentService: CommentService

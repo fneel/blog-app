@@ -1,6 +1,7 @@
-<h4>You are currently in {{ activeUserService.getUserStatusString() }} view</h4>
-<button (click)="toggleUser()">Toggle User</button>
-
+<div class="toggle-container">
+<button class="toggle-btn" (click)="toggleUser()">Toggle User</button>
+<p><i>Du ser nu sidan som {{ activeUserService.getUserStatusString() }} </i></p>
+</div>
 <!-- <div [hidden]="isShow">
     <a routerLink="/create">Create Post</a>
 </div> -->
